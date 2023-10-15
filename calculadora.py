@@ -1,46 +1,50 @@
-# Função para adição
-def add(x, y):
-   return x + y
+# Definindo as funções para as operações matemáticas
+def soma(a, b):
+    return a + b
 
-# Função para subtração
-def subtract(x, y):
-   return x - y
+def subtracao(a, b):
+    return a - b
 
-# Função para multiplicação
-def multiply(x, y):
-   return x * y
+def multiplicacao(a, b):
+    return a * b
 
-# Função para divisão
-def divide(x, y):
-   return x / y
+def divisao(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Erro: Divisão por zero"
 
-print("Selecione o tipo de operação:")
-print("1. Soma")
-print("2. Subtração")
-print("3. Multiplicação")
-print("4. Divisão")
+# Função principal da calculadora
+def calculadora():
+    operacoes = {
+        '+': soma,
+        '-': subtracao,
+        '*': multiplicacao,
+        '/': divisao
+    }
 
-escolha = input("Digite a opção (1/2/3/4): ")
+    while True:
+        print("Selecione a operação:")
+        print("+ para adição")
+        print("- para subtração")
+        print("* para multiplicação")
+        print("/ para divisão")
+        print("Pressione qualquer outra tecla para sair")
 
-num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
+        operacao = input("Digite a operação desejada: ")
 
-if escolha == '1':
-   print(num1, "+", num2, "=", add(num1, num2))
+        if operacao not in operacoes:
+            print("Saindo...")
+            break
 
-elif escolha == '2':
-   print(num1, "-", num2, "=", subtract(num1, num2))
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
 
-elif escolha == '3':
-   print(num1, "*", num2, "=", multiply(num1, num2))
+            resultado = operacoes[operacao](num1, num2)
+            print(f"O resultado é: {resultado}")
+        except ValueError:
+            print("Erro: Entrada inválida. Tente novamente.")
 
-elif escolha == '4':
-   if num2 == 0:
-       print("Não é possível dividir por zero.")
-   else:
-       print(num1, "/", num2, "=", divide(num1, num2))
-else:
-   print("Opção inválida")
-#Chama a função calculadora
+# Chamando a função principal
 calculadora()
-
