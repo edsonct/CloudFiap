@@ -41,3 +41,6 @@ elif escolha == '4':
        print(num1, "/", num2, "=", divide(num1, num2))
 else:
    print("Opção inválida")
+#Chama a função calculadora
+calculadora()
+
