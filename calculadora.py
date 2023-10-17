@@ -1,4 +1,5 @@
 # Definindo as funções para as operações matemáticas
+import covarage
 def soma(a, b):
     return a + b
 
